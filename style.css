@@ -43,7 +43,6 @@ nav ul li {
 
 .container {
     min-height: 70vh;
-    /* This sets the minimum height of the container to 75% of the viewport height */
     background-color: black;
     color: white;
     font-family: 'Varela Round', sans-serif;
@@ -52,7 +51,11 @@ nav ul li {
     width: 70%;
     border-radius: 12px;
     padding: 34px;
+
     background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .bottom {
