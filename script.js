@@ -34,14 +34,20 @@ masterPlay.addEventListener('click', () => {
         masterPlay.classList.remove('fa-circle-play');
         masterPlay.classList.add('fa-circle-pause');
         gif.style.opacity = 1;
+
+        document.getElementById(songIndex).classList.remove('fa-circle-play');
+        document.getElementById(songIndex).classList.add('fa-circle-pause');
     }
     else {
         audioElement.pause();
         masterPlay.classList.remove('fa-circle-pause');
         masterPlay.classList.add('fa-circle-play');
         gif.style.opacity = 0;
+
+        document.getElementById(songIndex).classList.remove('fa-circle-pause');
+        document.getElementById(songIndex).classList.add('fa-circle-play');
     }
-})
+});
 // Listen to Events
 audioElement.addEventListener('timeupdate', () => {
     //Update Seekbar
