@@ -63,7 +63,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
     element.addEventListener('click',(e)=>{
         makeAllPlays();
         songIndex = parseInt(e.target.id);
-        audioElement.src = `songs/${songIndex + 1}.mp3`;
+        audioElement.src = songs[songIndex].filePath;
         console.log(audioElement.src);
         audioElement.currentTime = 0;
         audioElement.play();
