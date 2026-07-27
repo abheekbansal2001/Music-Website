@@ -59,38 +59,60 @@ const makeAllPlays = () => {
         element.classList.add('fa-circle-play');
     });
 }
+
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
     element.addEventListener('click', (e) => {
 
         let clickedIndex = parseInt(e.target.id);
 
-        // If the same song is playing, pause it
+        // Same song is playing -> Pause it
         if (songIndex === clickedIndex && !audioElement.paused) {
             audioElement.pause();
+
             e.target.classList.remove('fa-circle-pause');
             e.target.classList.add('fa-circle-play');
+
             masterPlay.classList.remove('fa-circle-pause');
             masterPlay.classList.add('fa-circle-play');
+
             gif.style.opacity = 0;
-            return;
         }
 
-        // Play the selected song
-        makeAllPlays();
-        songIndex = clickedIndex;
-        audioElement.src = songs[songIndex].filePath;
-        audioElement.currentTime = 0;
-        audioElement.play();
+        // Same song is paused -> Resume it
+        else if (songIndex === clickedIndex && audioElement.paused) {
+            audioElement.play();
 
-        e.target.classList.remove('fa-circle-play');
-        e.target.classList.add('fa-circle-pause');
+            e.target.classList.remove('fa-circle-play');
+            e.target.classList.add('fa-circle-pause');
 
-        masterPlay.classList.remove('fa-circle-play');
-        masterPlay.classList.add('fa-circle-pause');
+            masterPlay.classList.remove('fa-circle-play');
+            masterPlay.classList.add('fa-circle-pause');
 
-        gif.style.opacity = 1;
+            gif.style.opacity = 1;
+        }
+
+        // Different song selected
+        else {
+            makeAllPlays();
+
+            songIndex = clickedIndex;
+            audioElement.src = songs[songIndex].filePath;
+            audioElement.currentTime = 0;
+            audioElement.play();
+
+            e.target.classList.remove('fa-circle-play');
+            e.target.classList.add('fa-circle-pause');
+
+            masterPlay.classList.remove('fa-circle-play');
+            masterPlay.classList.add('fa-circle-pause');
+
+            gif.style.opacity = 1;
+        }
+
     });
 });
+
+        
 
 
 
