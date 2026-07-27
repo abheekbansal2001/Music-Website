@@ -59,18 +59,36 @@ const makeAllPlays = () => {
         element.classList.add('fa-circle-play');
     });
 }
-Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-    element.addEventListener('click',(e)=>{
+Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
+    element.addEventListener('click', (e) => {
+
+        let clickedIndex = parseInt(e.target.id);
+
+        // If the same song is playing, pause it
+        if (songIndex === clickedIndex && !audioElement.paused) {
+            audioElement.pause();
+            e.target.classList.remove('fa-circle-pause');
+            e.target.classList.add('fa-circle-play');
+            masterPlay.classList.remove('fa-circle-pause');
+            masterPlay.classList.add('fa-circle-play');
+            gif.style.opacity = 0;
+            return;
+        }
+
+        // Play the selected song
         makeAllPlays();
-        songIndex = parseInt(e.target.id);
+        songIndex = clickedIndex;
         audioElement.src = songs[songIndex].filePath;
-        console.log(audioElement.src);
         audioElement.currentTime = 0;
         audioElement.play();
-        console.log("Song clicked", songIndex);
+
         e.target.classList.remove('fa-circle-play');
         e.target.classList.add('fa-circle-pause');
-        
+
+        masterPlay.classList.remove('fa-circle-play');
+        masterPlay.classList.add('fa-circle-pause');
+
+        gif.style.opacity = 1;
     });
 });
 
