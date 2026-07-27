@@ -14,7 +14,7 @@ let songs = [
     { songName: "Tv Off - Kendrick Lamar", filePath: "songs/5.mp3", coverPath: "covers/5.jpg" },
     { songName: "Iss Tarah - Chaar Diwari", filePath: "songs/6.mp3", coverPath: "covers/6.jpg" },
     { songName: "Zindagi Pyaar Ka Geet Hai", filePath: "songs/7.mp3", coverPath: "covers/7.jpg" },
-    { songName: "Let me Love You", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
+    { songName: "No Losses - Krsna", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
     { songName: "Let me Love You", filePath: "songs/9.mp3", coverPath: "covers/9.jpg" },
     { songName: "Let me Love You", filePath: "songs/10.mp3", coverPath: "covers/10.jpg" },
 
