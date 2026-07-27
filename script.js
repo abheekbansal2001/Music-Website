@@ -61,6 +61,11 @@ const makeAllPlays = () => {
 }
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
     element.addEventListener('click',(e)=>{
+        makeAllPlays();
+        songIndex = parseInt(e.target.id);
+        audioElement.src = `songs/${songIndex + 1}.mp3`;
+        audioElement.currentTime = 0;
+        audioElement.play();
         console.log(e.target);
         e.target.classList.remove('fa-circle-play');
         e.target.classList.add('fa-circle-pause');
