@@ -65,8 +65,9 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
 
         let clickedIndex = parseInt(e.target.id);
 
-        // Same song is playing -> Pause it
+        // Same song is already playing -> Pause it
         if (songIndex === clickedIndex && !audioElement.paused) {
+
             audioElement.pause();
 
             e.target.classList.remove('fa-circle-pause');
@@ -80,6 +81,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
 
         // Same song is paused -> Resume it
         else if (songIndex === clickedIndex && audioElement.paused) {
+
             audioElement.play();
 
             e.target.classList.remove('fa-circle-play');
@@ -93,9 +95,11 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
 
         // Different song selected
         else {
+
             makeAllPlays();
 
             songIndex = clickedIndex;
+
             audioElement.src = songs[songIndex].filePath;
             audioElement.currentTime = 0;
             audioElement.play();
@@ -108,10 +112,8 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
 
             gif.style.opacity = 1;
         }
-
     });
 });
-
         
 
 
